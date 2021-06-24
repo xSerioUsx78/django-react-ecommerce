@@ -1,5 +1,5 @@
-const endpoint = "http://localhost:8000/";
-
+// const endpoint = "http://localhost:8000/";
+const endpoint = "https://django-react-ecommerce-mn.herokuapp.com/";
 
 const requests = {
     registerURL: `${endpoint}users/api/register/`,
