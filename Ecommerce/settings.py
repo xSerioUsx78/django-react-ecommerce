@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m66x3lk95+&jt-&)=t%(a@d(%b64#zg7cuyd0e%yibws_09(6h'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -151,6 +151,10 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'django_b2.storage.B2Storage'
+B2_APP_KEY_ID = os.environ.get('B2_APP_KEY_ID')
+B2_APP_KEY = os.environ.get('B2_APP_KEY')
+B2_BUCKET_NAME = os.environ.get('B2_BUCKET_NAME')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
