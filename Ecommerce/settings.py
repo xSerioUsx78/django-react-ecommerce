@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m66x3lk95+&jt-&)=t%(a@d(%b64#zg7cuyd0e%yibws_09(6h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["https://django-react-ecommerce-mn.herokuapp.com/"]
 
@@ -65,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://django-react-ecommerce-mn.herokuapp.com/"
+    # "https://django-react-ecommerce-mn.herokuapp.com/"
 ]
 
 REST_FRAMEWORK = {
