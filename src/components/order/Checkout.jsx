@@ -252,6 +252,7 @@ const Checkout = () => {
                       isHidden={true}
                       modalTitle="Add a new address"
                       id="addAddress"
+                      prefix="create"
                     />
                     <AddressForm
                       onChange={handleAddressFormChange}
@@ -262,6 +263,7 @@ const Checkout = () => {
                       isHidden={true}
                       modalTitle="Change your address"
                       id="updateAddress"
+                      prefix="update"
                     />
                   </>
                 )}

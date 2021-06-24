@@ -9,6 +9,7 @@ const AddFirstAddressForm = ({
   isHidden,
   modalTitle,
   id,
+  prefix,
 }) => {
   const modalClasses = isHidden ? "modal fade" : "";
 
@@ -43,14 +44,14 @@ const AddFirstAddressForm = ({
             <div className="modal-body">
               <div className="row g-3">
                 <div className="col-md-6">
-                  <label htmlFor="state" className="form-label">
+                  <label htmlFor={`${prefix}_state`} className="form-label">
                     State
                   </label>
                   <input
                     placeholder="State"
                     type="text"
                     className="form-control"
-                    id="state"
+                    id={`${prefix}_state`}
                     name="state"
                     onChange={onChange}
                     value={address.state}
@@ -58,14 +59,14 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="city" className="form-label">
+                  <label htmlFor={`${prefix}_city`} className="form-label">
                     City
                   </label>
                   <input
                     placeholder="City"
                     type="city"
                     className="form-control"
-                    id="city"
+                    id={`${prefix}_city`}
                     name="city"
                     onChange={onChange}
                     value={address.city}
@@ -73,13 +74,13 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-12">
-                  <label htmlFor="district" className="form-label">
+                  <label htmlFor={`${prefix}_district`} className="form-label">
                     District
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="district"
+                    id={`${prefix}_district`}
                     placeholder="Distcrict"
                     name="district"
                     onChange={onChange}
@@ -88,13 +89,16 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-12">
-                  <label htmlFor="postal-address" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_postal-address`}
+                    className="form-label"
+                  >
                     Postal address
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="postal-address"
+                    id={`${prefix}_postal-address`}
                     placeholder="Postal address"
                     name="postal_address"
                     onChange={onChange}
@@ -103,7 +107,7 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-md-4">
-                  <label htmlFor="plaque" className="form-label">
+                  <label htmlFor={`${prefix}_plaque`} className="form-label">
                     Plaque
                   </label>
                   <input
@@ -111,7 +115,7 @@ const AddFirstAddressForm = ({
                     placeholder="plaque"
                     type="number"
                     className="form-control"
-                    id="plaque"
+                    id={`${prefix}_plaque`}
                     name="plaque"
                     onChange={onChange}
                     value={address.plaque}
@@ -121,7 +125,7 @@ const AddFirstAddressForm = ({
                 <div className="col-md-4">
                   <label
                     placeholder="unit"
-                    htmlFor="unit"
+                    htmlFor={`${prefix}_unit`}
                     className="form-label"
                   >
                     Unit
@@ -131,34 +135,40 @@ const AddFirstAddressForm = ({
                     placeholder="Unit"
                     type="number"
                     className="form-control"
-                    id="unit"
+                    id={`${prefix}_unit`}
                     name="unit"
                     onChange={onChange}
                     value={address.unit}
                   />
                 </div>
                 <div className="col-md-4">
-                  <label htmlFor="postal-code" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_postal-code`}
+                    className="form-label"
+                  >
                     Postal code
                   </label>
                   <input
                     name="postal_code"
                     type="text"
                     className="form-control"
-                    id="postal-code"
+                    id={`${prefix}_postal-code`}
                     onChange={onChange}
                     value={address.postal_code}
                     required
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="recipients-firstname" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_recipients_first_name`}
+                    className="form-label"
+                  >
                     Recipients firstname
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="recipients-firstname"
+                    id={`${prefix}_recipients_first_name`}
                     name="recipients_first_name"
                     onChange={onChange}
                     value={address.recipients_first_name}
@@ -166,13 +176,16 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="recipients-lastname" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_recipients_last_name`}
+                    className="form-label"
+                  >
                     Recipients lastname
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="recipients-lastname"
+                    id={`${prefix}_recipients_last_name`}
                     name="recipients_last_name"
                     onChange={onChange}
                     value={address.recipients_last_name}
@@ -180,28 +193,34 @@ const AddFirstAddressForm = ({
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="national-code" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_national_code`}
+                    className="form-label"
+                  >
                     National code
                   </label>
                   <input
                     name="national_code"
                     type="text"
                     className="form-control"
-                    id="national-code"
+                    id={`${prefix}_national_code`}
                     onChange={onChange}
                     value={address.national_code}
                     required
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="phone-number" className="form-label">
+                  <label
+                    htmlFor={`${prefix}_phone_number`}
+                    className="form-label"
+                  >
                     Phone number
                   </label>
                   <input
                     placeholder="Phone number"
                     type="text"
                     className="form-control"
-                    id="phone-number"
+                    id={`${prefix}_phone_number`}
                     name="phone_number"
                     onChange={onChange}
                     value={address.phone_number}
