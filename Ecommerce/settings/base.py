@@ -17,8 +17,6 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = None
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,7 +121,7 @@ SIMPLE_JWT = {
     'UPDATE_LAST_LOGIN': False,
 
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
+    'SIGNING_KEY': 'django-insecure-m66x3lk95+&jt-&)=t%(a@d(%b64#zg7cuyd0e%yibws_09(6h',
     'VERIFYING_KEY': None,
     'AUDIENCE': None,
     'ISSUER': None,
