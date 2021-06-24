@@ -65,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "django-react-ecommerce-mn.herokuapp.com"
+    "localhost:3000"
 ]
 
 REST_FRAMEWORK = {
