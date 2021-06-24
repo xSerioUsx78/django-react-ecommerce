@@ -6,12 +6,11 @@ import Products from "./Products";
 
 const Index = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLaoding] = useState(false);
+  const [loading, setLaoding] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setLaoding(true);
         const res = await axios.get(requests.getLatestProductsURL);
         setProducts(res.data);
       } catch (e) {

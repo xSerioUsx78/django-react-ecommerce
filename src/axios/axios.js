@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const endpoint = "https://django-react-ecommerce-mn.herokuapp.com/";
+const endpoint = "http://localhost:8000/";
 
 const instance = axios.create({
     baseURL: endpoint,

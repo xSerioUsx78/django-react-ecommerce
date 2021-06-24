@@ -74,3 +74,9 @@
 .color-chooser input:checked + label {
   border: 3px solid var(--bs-info);
 }
+
+.img img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}

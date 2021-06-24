@@ -2,7 +2,7 @@ import Skeleton from "react-loading-skeleton";
 
 const CartSkeleton = () => {
   return (
-    <>
+    <div className="row">
       <div className="col-md-8 col-sm-6 col-xs-12 mb-4">
         <div className="order-address__section order-cart__shadow border mb-4 p-4 rounded-3">
           <div className="address-selected-info">
@@ -44,7 +44,7 @@ const CartSkeleton = () => {
           <Skeleton height={35} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

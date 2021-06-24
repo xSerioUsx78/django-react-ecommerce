@@ -209,82 +209,78 @@ const Checkout = () => {
   return (
     <div className="order-checkout-page mt-4">
       <div className="container-fluid pe-4 ps-4">
-        <div className="row">
-          {loading ? (
-            <CartSkeleton />
-          ) : (
-            <>
-              <div className="col-md-8 col-sm-6 col-xs-12 mb-4">
-                {addresses.length > 0 ? (
-                  <div className="order-address__section order-cart__shadow border mb-4 p-4 rounded-3">
-                    {!showAddreses ? (
-                      <DefaultAddress
-                        address={defaultAddress}
-                        showAddress={handleShowAddresses}
-                        FaUser={<FaUser className="me-2 text-secondary" />}
-                        FaAngleRight={<FaAngleRight className="mr-2" />}
-                      />
-                    ) : (
-                      <>
-                        <AllAddresses
-                          addresses={addresses}
-                          setAddress={handleSetAddressAsDefault}
-                          deleteAddress={handleDeleteAddress}
-                          updateAddress={handleUpdateAddress}
-                          FaUser={<FaUser className="me-2 text-secondary" />}
-                          FaTimes={
-                            <FaTimes
-                              onClick={handleShowAddresses}
-                              className="cursor-pointer float-end"
-                              size="20"
-                            />
-                          }
-                          FaEnvelope={
-                            <FaEnvelope className="me-2 text-secondary" />
-                          }
-                          FaPhone={<FaPhone className="me-2 text-secondary" />}
-                          FaPlus={<FaPlus size="20" />}
-                        />
-                        <AddressForm
-                          onChange={handleAddressFormChange}
-                          onSubmit={handleAddressFormSubmit}
-                          resetAddressState={resetAddressState}
-                          address={address}
-                          isLoading={formLoading}
-                          isHidden={true}
-                          modalTitle="Add a new address"
-                          id="addAddress"
-                        />
-                        <AddressForm
-                          onChange={handleAddressFormChange}
-                          onSubmit={handleAddressFormUpdate}
-                          resetAddressState={resetAddressState}
-                          address={address}
-                          isLoading={formLoading}
-                          isHidden={true}
-                          modalTitle="Change your address"
-                          id="updateAddress"
-                        />
-                      </>
-                    )}
-                  </div>
-                ) : (
-                  <AddressForm
-                    onChange={handleAddressFormChange}
-                    onSubmit={handleAddressFormSubmit}
-                    address={address}
-                    isLoading={formLoading}
-                    isHidden={false}
-                    modalTitle="Add your address"
+        {loading ? (
+          <CartSkeleton />
+        ) : addresses.length > 0 ? (
+          <div className="row">
+            <div className="col-md-8 col-sm-6 col-xs-12 mb-4">
+              <div className="order-address__section order-cart__shadow border mb-4 p-4 rounded-3">
+                {!showAddreses ? (
+                  <DefaultAddress
+                    address={defaultAddress}
+                    showAddress={handleShowAddresses}
+                    FaUser={<FaUser className="me-2 text-secondary" />}
+                    FaAngleRight={<FaAngleRight className="mr-2" />}
                   />
+                ) : (
+                  <>
+                    <AllAddresses
+                      addresses={addresses}
+                      setAddress={handleSetAddressAsDefault}
+                      deleteAddress={handleDeleteAddress}
+                      updateAddress={handleUpdateAddress}
+                      FaUser={<FaUser className="me-2 text-secondary" />}
+                      FaTimes={
+                        <FaTimes
+                          onClick={handleShowAddresses}
+                          className="cursor-pointer float-end"
+                          size="20"
+                        />
+                      }
+                      FaEnvelope={
+                        <FaEnvelope className="me-2 text-secondary" />
+                      }
+                      FaPhone={<FaPhone className="me-2 text-secondary" />}
+                      FaPlus={<FaPlus size="20" />}
+                    />
+                    <AddressForm
+                      onChange={handleAddressFormChange}
+                      onSubmit={handleAddressFormSubmit}
+                      resetAddressState={resetAddressState}
+                      address={address}
+                      isLoading={formLoading}
+                      isHidden={true}
+                      modalTitle="Add a new address"
+                      id="addAddress"
+                    />
+                    <AddressForm
+                      onChange={handleAddressFormChange}
+                      onSubmit={handleAddressFormUpdate}
+                      resetAddressState={resetAddressState}
+                      address={address}
+                      isLoading={formLoading}
+                      isHidden={true}
+                      modalTitle="Change your address"
+                      id="updateAddress"
+                    />
+                  </>
                 )}
               </div>
-              <div className="col-md-4 col-sm-6 col-xs-12">
-                <SideBar cart={cart} settingAddress={handleSetingAddress} />
-              </div>
-            </>
-          )}
-        </div>
+            </div>
+            <div className="col-md-4 col-sm-6 col-xs-12">
+              <SideBar cart={cart} settingAddress={handleSetingAddress} />
+            </div>
+          </div>
+        ) : (
+          <AddressForm
+            onChange={handleAddressFormChange}
+            onSubmit={handleAddressFormSubmit}
+            address={address}
+            isLoading={formLoading}
+            isHidden={false}
+            modalTitle="Add your address"
+          />
+        )}
       </div>
     </div>
   );
