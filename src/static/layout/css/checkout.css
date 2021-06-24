@@ -1,0 +1,114 @@
+.wrapper {
+  max-width: 1351px;
+}
+
+.order-cart__shadow {
+  box-shadow: rgb(0 0 0 / 10%) -4px 9px 25px -6px;
+}
+
+.cart__items-checkout {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 20px 15px 10px;
+}
+
+.cart__items-checkout ul .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__items-checkout ul .flex span {
+  color: gray;
+  font-size: 14px;
+}
+
+.cart__items-checkout ul .info span {
+  font-size: 12px;
+  color: gray;
+}
+
+.cart__items-checkout ul li .btn {
+  padding: 12px;
+}
+
+.cart__items-checkout ul .final-paymentable__price span {
+  font-size: 15px !important;
+}
+
+.order-address__section {
+  background-color: #fff;
+}
+
+.order-address__section .address {
+  font-size: 15px;
+}
+
+.order-address__section .reciever span {
+  font-size: 15px;
+  color: gray;
+}
+
+.order-address__section .reciever i {
+  font-size: 16px;
+  color: gray;
+}
+
+.order-address__section .edit__add {
+  display: inline-block;
+}
+
+.order-address__section .edit__add span {
+  cursor: pointer;
+}
+
+.order-address__section .edit__add span {
+  display: flex;
+  align-items: center;
+}
+
+.custom-radio label {
+  margin-bottom: 0;
+}
+
+.addresses .address-add__item,
+.addresses .address__item {
+  min-height: 235px;
+  width: 100%;
+  position: relative;
+}
+
+.addresses .address__item {
+  padding: 10px 10px 20px 20px;
+  border: 1px solid rgb(206, 206, 206);
+}
+
+.addresses .active {
+  border-color: var(--bs-info);
+}
+
+.addresses .address__item .middle-section .address-info .postal_address {
+  font-size: 14px;
+}
+
+.addresses .address-add__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgb(206, 206, 206);
+}
+
+.addresses .address-add__item:hover .text-center span {
+  transition: all 0.2s ease-in-out;
+}
+
+.addresses .address-add__item .text-center span:last-child {
+  font-size: 14px;
+}
+
+.addresses .address-add__item:hover .text-center span {
+  color: var(--bs-success);
+}
+
+.form-group .authentication-form {
+  padding: 0 15px;
+}
