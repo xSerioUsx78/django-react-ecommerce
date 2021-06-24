@@ -65,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    # "https://django-react-ecommerce-mn.herokuapp.com/"
+    "https://django-react-ecommerce-mn.herokuapp.com/"
 ]
 
 REST_FRAMEWORK = {
