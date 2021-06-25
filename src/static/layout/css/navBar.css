@@ -17,6 +17,10 @@
   color: var(--bs-dark);
 }
 
+.cart-count {
+  font-size: 12px !important;
+}
+
 @media (max-width: 992px) {
   .search-result {
     top: 222px;

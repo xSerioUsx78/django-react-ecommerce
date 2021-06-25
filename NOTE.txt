@@ -1,0 +1,4 @@
+1- Making the style better.
+2- Adding orderItem count on cart symbol
+3- Make the website responsive
+4- Adding 404 Page

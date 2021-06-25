@@ -10,9 +10,18 @@ User = get_user_model()
 
 class UserSerilizer(serializers.ModelSerializer):
 
+    cart_count = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email', 'cart_count')
+
+    def get_cart_count(self, obj):
+        order_qs = obj.orders.filter(ordered=False)
+        if order_qs.exists():
+            order = order_qs[0]
+            return order.get_cart_items_count()
+        return 0
 
 
 class RegisterSerilizer(serializers.ModelSerializer):
@@ -29,7 +38,7 @@ class RegisterSerilizer(serializers.ModelSerializer):
         # get the password from the data
         password = data.get('password')
 
-        errors = dict() 
+        errors = dict()
         try:
             # validate the password and catch the exception
             password_validation.validate_password(password=password, user=User)
@@ -48,12 +57,13 @@ class RegisterSerilizer(serializers.ModelSerializer):
             validated_data['username'],
             validated_data['email'],
             validated_data['password']
-            )
-        
+        )
+
         return user
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+
     def validate(self, attrs):
         # The default result (access/refresh tokens)
         data = super(CustomTokenObtainPairSerializer, self).validate(attrs)
@@ -62,8 +72,16 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             'user': {
                 'username': self.user.username,
                 'email': self.user.email,
-                'id': self.user.id
-            }
+                'id': self.user.id,
+            },
+            'cart_count': self.get_cart_count()
         })
         # and everything else you want to send in the response
         return data
+
+    def get_cart_count(self):
+        order_qs = self.user.orders.filter(ordered=False)
+        if order_qs.exists():
+            order = order_qs[0]
+            return order.get_cart_items_count()
+        return 0

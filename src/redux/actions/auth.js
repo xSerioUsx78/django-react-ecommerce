@@ -18,7 +18,12 @@ export const loadUser = () => (dispatch, getState) => {
           type: 'USER_LOADED',
           payload: res.data
         });
-
+        dispatch({
+          type: "SET_CART_COUNT",
+          payload: {
+            "cart_count": res.data.cart_count
+          }
+        })
       })
       .catch(err => {
         dispatch({
@@ -43,7 +48,8 @@ export const loginUser = (data) => (dispatch) => {
         'access': res.data.access,
         'refresh': res.data.refresh
       };
-      const user = res.data.user
+      const user = res.data.user;
+      const cartCount = res.data.cart_count;
       dispatch({
         type: 'USER_LOGGED_IN',
         payload: {
@@ -53,6 +59,12 @@ export const loginUser = (data) => (dispatch) => {
       });
       dispatch({ type: 'RESET_ERROR' });
       dispatch({ type: 'NOT_LOADING' });
+      dispatch({
+        type: 'SET_CART_COUNT',
+        payload: {
+          "cart_count": cartCount
+        },
+      });
     })
     .catch(err => {
       dispatch({

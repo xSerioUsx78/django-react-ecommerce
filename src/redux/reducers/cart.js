@@ -8,7 +8,8 @@ const initialState = {
     deletingLoading: {
         isLoading: false,
         id: null
-    }
+    },
+    count: 0
 }
 
 
@@ -19,6 +20,20 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
+        case 'SET_CART_COUNT':
+            return {
+                ...state,
+                count: action.payload.cart_count
+            }
+        case 'INCREASE_CART_COUNT':
+            return {
+                ...state,
+                count: action.payload
+            }
+        case 'DECREASE_CART_COUNT':
+            state = {...state}
+            state.count--
+            return state
         case 'CART_SUCCESS':
             return {
                 ...state,
@@ -85,6 +100,7 @@ const cartReducer = (state = initialState, action) => {
             state.order[0].get_final_amount = action.payload.getFinalAmount;
             state.deletingLoading.isLoading = false;
             state.deletingLoading.id = null;
+            state.count--;
             return state;
         case 'DELETING_FAIL':
             return {

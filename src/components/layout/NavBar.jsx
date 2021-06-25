@@ -9,6 +9,7 @@ import "../../static/layout/css/navBar.css";
 
 const NavBar = () => {
   const auth = useSelector((state) => state.auth);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -77,8 +78,23 @@ const NavBar = () => {
               {auth.isAuthenticated ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/cart/">
+                    <Link className="nav-link position-relative" to="/cart/">
                       <FaCartPlus size="20px" />
+                      {cart.count > 0 && (
+                        <span
+                          className="
+                        badge 
+                        bg-danger 
+                        rounded-circle 
+                        position-absolute 
+                        translate-middle
+                        border 
+                        border-light
+                        "
+                        >
+                          {cart.count}
+                        </span>
+                      )}
                     </Link>
                   </li>
                   <li className="nav-item">

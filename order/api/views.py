@@ -41,7 +41,11 @@ class AddToCartView(APIView):
                 order=order, product_id=pk
             )
             order_item.variation.add(*variations)
-        return Response({}, status=status.HTTP_201_CREATED)
+        data = {"cart_count": order.get_cart_items_count()}
+        return Response(
+            data,
+            status=status.HTTP_201_CREATED
+        )
 
 
 class CartAPIView(generics.ListAPIView):

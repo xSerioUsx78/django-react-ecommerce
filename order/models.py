@@ -54,6 +54,9 @@ class Order(models.Model):
             final_amount += total_amount
         return convert_to_comma(final_amount)
 
+    def get_cart_items_count(self):
+        return self.order_items.count()
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,

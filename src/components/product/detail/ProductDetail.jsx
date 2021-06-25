@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "react-loading-skeleton";
 import requests from "../../../requests/requests";
 import axios from "axios";
@@ -15,6 +15,8 @@ const ProductDetail = ({ match }) => {
     slug = match.params.slug;
 
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const auth = useSelector((state) => state.auth);
   const [product, setProduct] = useState([]);
@@ -66,7 +68,15 @@ const ProductDetail = ({ match }) => {
             Authorization: `Bearer ${access}`,
           },
         };
-        await globalAxios.post(requests.addToCartURL(id, slug), data, config);
+        const res = await globalAxios.post(
+          requests.addToCartURL(id, slug),
+          data,
+          config
+        );
+        dispatch({
+          type: "INCREASE_CART_COUNT",
+          payload: res.data.cart_count,
+        });
         history.push("/cart/");
       } catch (e) {
         console.log(e.response.data);
@@ -115,7 +125,7 @@ const ProductDetail = ({ match }) => {
                         />
                         <Skeleton
                           className="me-2 mb-1"
-                          count={16}
+                          count={6}
                           circle={true}
                           width={25}
                           height={25}
