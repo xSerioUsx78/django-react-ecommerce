@@ -3,7 +3,7 @@ import Specification from "./Specification";
 import Description from "./Description";
 import Comment from "./Comment";
 
-const BottomSection = ({ specifications, description, loading }) => {
+const BottomSection = ({ specifications, description, loading, width }) => {
   return (
     <>
       <Tabs loading={loading} />

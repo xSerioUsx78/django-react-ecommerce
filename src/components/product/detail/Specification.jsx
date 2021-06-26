@@ -23,15 +23,21 @@ const Specification = ({ specifications, loading }) => {
             </div>
             <div className="infos">
               {sp.item_specifications.map((spi) => (
-                <div key={spi.id} className="d-flex align-items-center mb-4">
-                  <div className="w-25 bg-light me-2 p-1 ps-2 border rounded">
-                    <div className="sp value">
-                      <span>{spi.key}:</span>
+                <div key={spi.id} className="mb-4">
+                  <div className="row">
+                    <div className="col-md-3 col-sm-3 col-xs-12 mb-1">
+                      <div className="bg-light p-1 ps-2 border rounded">
+                        <div className="sp value">
+                          <span>{spi.key}:</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-100 bg-light ps-2 p-1 rounded border">
-                    <div className="sp value">
-                      <span>{spi.value}</span>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <div className="bg-light ps-2 p-1 rounded border">
+                        <div className="sp value">
+                          <span>{spi.value}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

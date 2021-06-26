@@ -9,6 +9,8 @@ import BottomSection from "./BottomSection";
 import ProductDetailSkeleton from "./ProductDetailSkeleton";
 import TopSection from "./TopSection";
 import { scrollIntoTop } from "../../../utils/scroll";
+import ProductDetailFooter from "./ProductDetailFooter";
+import useWindowDimensions from "../../base/WindowResize";
 import "../../../static/layout/css/productDetail.css";
 
 const ProductDetail = ({ match }) => {
@@ -24,6 +26,8 @@ const ProductDetail = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [variations, setVariations] = useState();
   const [addToCartLoading, setAddToCartLoading] = useState(false);
+
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     scrollIntoTop();
@@ -103,6 +107,7 @@ const ProductDetail = ({ match }) => {
             variations={variations}
             handleVariationsChange={handleVariationsChange}
             handleAddToCart={handleAddToCart}
+            windowWidth={width}
           />
         )}
         <BottomSection
@@ -110,6 +115,13 @@ const ProductDetail = ({ match }) => {
           description={product.description}
           loading={loading}
         />
+        {width <= 767 && (
+          <ProductDetailFooter
+            product={product}
+            addToCartLoading={addToCartLoading}
+            handleAddToCart={handleAddToCart}
+          />
+        )}
       </div>
     </div>
   );

@@ -48,8 +48,6 @@ const ProductDetailSkeleton = () => {
               <Skeleton width={35} />
               <Skeleton width={120} />
             </div>
-            <Skeleton className="me-2" width={15} height={15} circle={true} />
-            <Skeleton width={220} />
           </div>
           <Skeleton count={1} height={35} />
         </div>

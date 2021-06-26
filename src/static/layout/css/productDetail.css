@@ -116,13 +116,15 @@
   width: 100%;
 }
 
-@media (max-width: 767px) {
-  .add-to-cart-card {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
+.product-detail__fixed-footer {
+  height: 148px;
+}
+
+.product-detail__fixed-footer .add-to-cart-card {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 999;
 }

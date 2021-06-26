@@ -1,4 +1,3 @@
-import { FaThumbsUp } from "react-icons/fa";
 import Button from "../../base/Button";
 
 const TopSection = ({
@@ -7,18 +6,19 @@ const TopSection = ({
   variations,
   handleVariationsChange,
   handleAddToCart,
+  windowWidth,
 }) => {
   return (
     <div className="row mb-4">
       <div className="col-lg-8 col-md-6 col-sm-12">
-        <div className="product-detail text-sm text-xs-center">
+        <div className="product-detail">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="info">
                 <div className="title mb-4">
                   <h1 className="h3">{product.title}</h1>
                 </div>
-                <div className="img">
+                <div className="img text-xs-center">
                   <img src={product.image} alt={product.title} />
                 </div>
               </div>
@@ -76,55 +76,53 @@ const TopSection = ({
           </div>
         </div>
       </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="bg-light border rounded p-3 add-to-cart-card">
-          <div className="mb-4">
-            <div className="d-flex align-items-center justify-content-between mb-2">
-              <div>Price:</div>
-              <div>
-                {product.get_formated_discount ? (
-                  <>
-                    <div className="mb-1">
-                      <span className="badge rounded-pill bg-danger">
-                        {product.get_percent}%
-                      </span>
-                      <span className="old-price text-danger m-2">
-                        <del>{product.get_formated_price}</del>
-                      </span>
-                    </div>
-                    <div className="price">
-                      {product.get_formated_discount} Toman
-                    </div>
-                  </>
-                ) : (
-                  <div>{product.get_formated_price} Toman</div>
-                )}
+      {windowWidth > 767 && (
+        <div className="col-lg-4 col-md-6 col-sm-12">
+          <div className="bg-light border rounded p-3 add-to-cart-card">
+            <div className="mb-4">
+              <div className="d-flex align-items-center justify-content-between mb-2">
+                <div>Price:</div>
+                <div>
+                  {product.get_formated_discount ? (
+                    <>
+                      <div className="mb-1">
+                        <span className="badge rounded-pill bg-danger">
+                          {product.get_percent}%
+                        </span>
+                        <span className="old-price text-danger m-2">
+                          <del>{product.get_formated_price}</del>
+                        </span>
+                      </div>
+                      <div className="price">
+                        {product.get_formated_discount} Toman
+                      </div>
+                    </>
+                  ) : (
+                    <div>{product.get_formated_price} Toman</div>
+                  )}
+                </div>
               </div>
             </div>
-            <div className="text-secondary">
-              <FaThumbsUp className="me-2" />
-              <small>Original Product with fully support</small>
-            </div>
+            <form onSubmit={handleAddToCart} method="POST">
+              {addToCartLoading ? (
+                <Button
+                  className="warning w-100"
+                  text="Adding to cart"
+                  type="button"
+                  loading={true}
+                />
+              ) : (
+                <Button
+                  className="warning w-100"
+                  text="Add to cart"
+                  type="submit"
+                  loading={false}
+                />
+              )}
+            </form>
           </div>
-          <form onSubmit={handleAddToCart} method="POST">
-            {addToCartLoading ? (
-              <Button
-                className="warning w-100"
-                text="Adding to cart"
-                type="button"
-                loading={true}
-              />
-            ) : (
-              <Button
-                className="warning w-100"
-                text="Add to cart"
-                type="submit"
-                loading={false}
-              />
-            )}
-          </form>
         </div>
-      </div>
+      )}
     </div>
   );
 };
