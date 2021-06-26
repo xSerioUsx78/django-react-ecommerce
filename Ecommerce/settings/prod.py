@@ -7,11 +7,14 @@ ALLOWED_HOSTS = ["django-react-ecommerce-mn.herokuapp.com"]
 DEBUG = False
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
+    os.path.join(BASE_DIR, 'build', 'static')
+]
+
+MIDDLEWARE += [
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 DEFAULT_FILE_STORAGE = 'django_b2.storage.B2Storage'
