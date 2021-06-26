@@ -47,3 +47,9 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+@media (max-width: 767px) {
+  .text-xs-center {
+    text-align: center !important;
+  }
+}

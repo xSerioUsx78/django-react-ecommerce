@@ -9,6 +9,7 @@ import {
 } from "../../redux/actions/cart";
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
+import { scrollIntoTop } from "../../utils/scroll";
 import "../../static/layout/css/cart.css";
 
 const Cart = () => {
@@ -17,6 +18,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    scrollIntoTop();
     dispatch(fetchCart());
   }, [dispatch]);
 

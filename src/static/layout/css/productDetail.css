@@ -81,3 +81,48 @@
   height: 180px;
   object-fit: contain;
 }
+
+#pills-tab .nav-item .nav-link {
+  color: var(--bs-gray);
+  position: relative;
+  background-color: var(--bs-light);
+}
+
+#pills-tab .nav-item .nav-link::before {
+  content: "";
+  position: absolute;
+  background-color: var(--bs-danger);
+  width: 0;
+  height: 3px;
+  transition: 0.3s all ease-in-out;
+  bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+#pills-tab .nav-item .nav-link:hover {
+  background-color: var(--bs-light);
+}
+
+#pills-tab .nav-item .nav-link.active {
+  background-color: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+#pills-tab .nav-item .nav-link.active::before {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .add-to-cart-card {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+}

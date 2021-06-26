@@ -4,6 +4,7 @@ import axios from "../../../axios/axios";
 import requests from "../../../requests/requests";
 import SideBarFilter from "./SideBarFilter";
 import Products from "../../layout/Products";
+import { scrollIntoTop } from "../../../utils/scroll";
 import "../../../static/layout/css/productList.css";
 
 const queryString = require("query-string");
@@ -35,6 +36,7 @@ const ProductList = (match) => {
   });
 
   useEffect(() => {
+    scrollIntoTop();
     const fetchProducts = async () => {
       try {
         const res = await axios.get(

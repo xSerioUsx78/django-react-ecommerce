@@ -3,12 +3,14 @@ import requests from "../../requests/requests";
 import axios from "../../axios/axios";
 import Slider from "./Slider";
 import Products from "./Products";
+import { scrollIntoTop } from "../../utils/scroll";
 
 const Index = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLaoding] = useState(true);
 
   useEffect(() => {
+    scrollIntoTop();
     const fetchProducts = async () => {
       try {
         const res = await axios.get(requests.getLatestProductsURL);

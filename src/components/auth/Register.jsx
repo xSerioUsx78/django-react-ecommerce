@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "../../axios/axios";
 import requests from "../../requests/requests";
 import Button from "../base/Button";
+import { scrollIntoTop } from "../../utils/scroll";
 import "../../static/auth/css/auth.css";
 
 const Register = () => {
@@ -26,6 +27,7 @@ const Register = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    scrollIntoTop();
     handlePasswordMatch();
   });
 
