@@ -43,81 +43,83 @@ const Login = (match) => {
   }
 
   return (
-    <div className="auth-page border p-5">
-      <div className="container">
-        <div className="sign-in-wrapper">
-          <div className="header mb-4 text-center">
-            <h4>Login in Your Account</h4>
-          </div>
-          {error && error.message && (
-            <div
-              className="alert 
-          alert-danger 
-          d-flex 
-          align-items-center"
-              role="alert"
-            >
-              <div>{error.message}</div>
+    <div className="auth-page-wrapper">
+      <div className="auth-page p-5">
+        <div className="container">
+          <div className="sign-in-wrapper">
+            <div className="header mb-4 text-center">
+              <h4>Login in Your Account</h4>
             </div>
-          )}
-          <div className="form-wrapper">
-            <form
-              method="POST"
-              className="row g-3"
-              onSubmit={handleLoginSubmit}
-            >
-              <div className="col-md-12">
-                <label htmlFor="username" className="form-label">
-                  Username
-                </label>
-                <input
-                  onChange={handleLogin}
-                  name="username"
-                  type="username"
-                  className="form-control"
-                  id="username"
-                  placeholder="Username"
-                  required
-                />
+            {error && error.message && (
+              <div
+                className="alert 
+                          alert-danger 
+                          d-flex 
+                          align-items-center"
+                role="alert"
+              >
+                <div>{error.message}</div>
               </div>
-              <div className="col-md-12">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  onChange={handleLogin}
-                  name="password"
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div className="col-12">
-                {loading ? (
-                  <Button
-                    className="primary"
-                    text="Signing in"
-                    type="button"
-                    loading={true}
+            )}
+            <div className="form-wrapper">
+              <form
+                method="POST"
+                className="row g-3"
+                onSubmit={handleLoginSubmit}
+              >
+                <div className="col-md-12">
+                  <label htmlFor="username" className="form-label">
+                    Username
+                  </label>
+                  <input
+                    onChange={handleLogin}
+                    name="username"
+                    type="username"
+                    className="form-control"
+                    id="username"
+                    placeholder="Username"
+                    required
                   />
-                ) : (
-                  <Button
-                    className="primary"
-                    text="Sign in"
-                    type="submit"
-                    loading={false}
+                </div>
+                <div className="col-md-12">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    onChange={handleLogin}
+                    name="password"
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    placeholder="Password"
+                    required
                   />
-                )}
-              </div>
-              <div>
-                <small>
-                  don't have an existing account?{" "}
-                  <Link to="/register/">Register Here</Link>
-                </small>
-              </div>
-            </form>
+                </div>
+                <div className="col-12">
+                  {loading ? (
+                    <Button
+                      className="primary"
+                      text="Signing in"
+                      type="button"
+                      loading={true}
+                    />
+                  ) : (
+                    <Button
+                      className="primary"
+                      text="Sign in"
+                      type="submit"
+                      loading={false}
+                    />
+                  )}
+                </div>
+                <div>
+                  <small>
+                    don't have an existing account?{" "}
+                    <Link to="/register/">Register Here</Link>
+                  </small>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

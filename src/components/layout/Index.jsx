@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <div>
       <Slider />
-      <div className="products-list pb-5">
+      <div className="products-list">
         <div className="container">
           <div className="text-center mb-4">
             <h4>The latest products</h4>

@@ -111,107 +111,113 @@ const Register = () => {
   }
 
   return (
-    <div className="auth-page border p-5">
-      <div className="container">
-        <div className="sign-in-wrapper">
-          <div className="header mb-4 text-center">
-            <h4>Register an Account</h4>
-          </div>
-          <div className="form-wrapper">
-            <form method="POST" className="row g-3" onSubmit={handleFormSubmit}>
-              <div className="col-md-6">
-                <label htmlFor="username" className="form-label">
-                  Username
-                </label>
-                <input
-                  onChange={handleRegister}
-                  name="username"
-                  type="username"
-                  className={`form-control ${classes.username}`}
-                  id="username"
-                  placeholder="Username"
-                  required
-                />
-                {errors.username && (
-                  <div className="invalid-feedback">{errors.username}</div>
-                )}
-              </div>
-              <div className="col-md-6">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
-                <input
-                  onChange={handleRegister}
-                  name="email"
-                  type="email"
-                  className={`form-control ${classes.email}`}
-                  id="email"
-                  placeholder="Email"
-                  required
-                />
-                {errors.email && (
-                  <div className="invalid-feedback">{errors.email}</div>
-                )}
-              </div>
-              <div className="col-md-12">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  onChange={handleRegister}
-                  name="password1"
-                  type="password"
-                  className={`form-control ${classes.password}`}
-                  id="password1"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div className="col-md-12">
-                <label htmlFor="password2" className="form-label">
-                  Repeat password
-                </label>
-                <input
-                  onChange={handleRegister}
-                  name="password2"
-                  type="password"
-                  aria-describedby=""
-                  className={`form-control ${classes.password}`}
-                  id="password2"
-                  placeholder="Repeat password"
-                  required
-                />
-                {passwordError && (
-                  <div className="text-danger mt-2">{passwordError}</div>
-                )}
-                {errors.password && (
-                  <div className="invalid-feedback">{errors.password}</div>
-                )}
-              </div>
-              <div className="col-12">
-                {loading ? (
-                  <Button
-                    className="primary"
-                    text="Regestering"
-                    type="button"
-                    loading={true}
+    <div className="auth-page-wrapper">
+      <div className="auth-page p-5">
+        <div className="container">
+          <div className="sign-in-wrapper">
+            <div className="header mb-4 text-center">
+              <h4>Register an Account</h4>
+            </div>
+            <div className="form-wrapper">
+              <form
+                method="POST"
+                className="row g-3"
+                onSubmit={handleFormSubmit}
+              >
+                <div className="col-md-6">
+                  <label htmlFor="username" className="form-label">
+                    Username
+                  </label>
+                  <input
+                    onChange={handleRegister}
+                    name="username"
+                    type="username"
+                    className={`form-control ${classes.username}`}
+                    id="username"
+                    placeholder="Username"
+                    required
                   />
-                ) : (
-                  <Button
-                    className="primary"
-                    text="Register"
-                    type="submit"
-                    loading={false}
+                  {errors.username && (
+                    <div className="invalid-feedback">{errors.username}</div>
+                  )}
+                </div>
+                <div className="col-md-6">
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    onChange={handleRegister}
+                    name="email"
+                    type="email"
+                    className={`form-control ${classes.email}`}
+                    id="email"
+                    placeholder="Email"
+                    required
                   />
-                )}
-              </div>
-              <div>
-                <small>
-                  Allready have an active account?{" "}
-                  <Link to="/login/">Login Here</Link>
-                </small>
-              </div>
-            </form>
+                  {errors.email && (
+                    <div className="invalid-feedback">{errors.email}</div>
+                  )}
+                </div>
+                <div className="col-md-12">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    onChange={handleRegister}
+                    name="password1"
+                    type="password"
+                    className={`form-control ${classes.password}`}
+                    id="password1"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div className="col-md-12">
+                  <label htmlFor="password2" className="form-label">
+                    Repeat password
+                  </label>
+                  <input
+                    onChange={handleRegister}
+                    name="password2"
+                    type="password"
+                    aria-describedby=""
+                    className={`form-control ${classes.password}`}
+                    id="password2"
+                    placeholder="Repeat password"
+                    required
+                  />
+                  {passwordError && (
+                    <div className="text-danger mt-2">{passwordError}</div>
+                  )}
+                  {errors.password && (
+                    <div className="invalid-feedback">{errors.password}</div>
+                  )}
+                </div>
+                <div className="col-12">
+                  {loading ? (
+                    <Button
+                      className="primary"
+                      text="Regestering"
+                      type="button"
+                      loading={true}
+                    />
+                  ) : (
+                    <Button
+                      className="primary"
+                      text="Register"
+                      type="submit"
+                      loading={false}
+                    />
+                  )}
+                </div>
+                <div>
+                  <small>
+                    Allready have an active account?{" "}
+                    <Link to="/login/">Login Here</Link>
+                  </small>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import "bootstrap/dist/js/bootstrap.bundle";
-let img1 = require("../../static/layout/img/slider1.jpg");
-let img2 = require("../../static/layout/img/slider2.jpg");
+let img1 = require("../../static/layout/img/slider1.png");
+let img2 = require("../../static/layout/img/slider2.png");
 let img3 = require("../../static/layout/img/slider3.jpg");
 
 const Slider = () => {
@@ -8,10 +8,11 @@ const Slider = () => {
     slider: {
       width: "100%",
       height: "100%",
+      maxHeight: "50vh",
     },
     img: {
       width: "100%",
-      height: "65vh",
+      height: "50vh",
       objectFit: "cover",
     },
   };
@@ -53,12 +54,6 @@ const Slider = () => {
               alt="..."
               style={styles.img}
             />
-            <div className="carousel-caption d-none d-md-block text-white">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
           </div>
           <div className="carousel-item" data-bs-interval="2000">
             <img
@@ -67,12 +62,6 @@ const Slider = () => {
               alt="..."
               style={styles.img}
             />
-            <div className="carousel-caption d-none d-md-block text-white">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
           </div>
           <div className="carousel-item">
             <img
@@ -81,12 +70,6 @@ const Slider = () => {
               alt="..."
               style={styles.img}
             />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
-            </div>
           </div>
         </div>
         <button

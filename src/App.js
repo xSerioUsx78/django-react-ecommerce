@@ -10,6 +10,7 @@ import ProductDetail from './components/product/detail/ProductDetail';
 import Cart from './components/order/Cart';
 import Checkout from './components/order/Checkout';
 import ProductList from './components/product/list/ProductList';
+import Footer from './components/base/Footer';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/checkout/" component={Checkout}></Route>
         <Route exact path="/product/" component={ProductList}></Route>
       </div>
+      <Footer/>
     </Router>
   );
 }
