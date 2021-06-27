@@ -17,7 +17,6 @@ import DefaultAddress from "./DefaultAddress";
 import AllAddresses from "./AllAddresses";
 import SideBar from "./SideBar";
 import CartSkeleton from "./CartSkeleton";
-import { scrollIntoTop } from "../../utils/scroll";
 import "../../static/layout/css/checkout.css";
 
 const Checkout = () => {
@@ -47,7 +46,6 @@ const Checkout = () => {
   const history = useHistory();
 
   useEffect(() => {
-    scrollIntoTop();
     const fetchAddresses = async () => {
       try {
         const res = await authAxios(auth.token).get(requests.addressesURL);

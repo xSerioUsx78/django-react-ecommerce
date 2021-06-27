@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/auth";
 import Button from "../base/Button";
-import { scrollIntoTop } from "../../utils/scroll";
 import "../../static/auth/css/auth.css";
 
 const queryString = require("query-string");
@@ -18,10 +17,6 @@ const Login = (match) => {
   const auth = useSelector((state) => state.auth);
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
-
-  useEffect(() => {
-    scrollIntoTop();
-  });
 
   const handleLogin = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });

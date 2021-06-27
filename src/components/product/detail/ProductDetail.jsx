@@ -8,7 +8,6 @@ import Breadcrumb from "../../base/Breadcrumb";
 import BottomSection from "./BottomSection";
 import ProductDetailSkeleton from "./ProductDetailSkeleton";
 import TopSection from "./TopSection";
-import { scrollIntoTop } from "../../../utils/scroll";
 import ProductDetailFooter from "./ProductDetailFooter";
 import useWindowDimensions from "../../base/WindowResize";
 import "../../../static/layout/css/productDetail.css";
@@ -30,7 +29,6 @@ const ProductDetail = ({ match }) => {
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    scrollIntoTop();
     const getProduct = async () => {
       try {
         const res = await globalAxios.get(requests.getProductURL(id, slug));

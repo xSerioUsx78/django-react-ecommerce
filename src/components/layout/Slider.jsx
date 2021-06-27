@@ -1,4 +1,5 @@
 import "bootstrap/dist/js/bootstrap.bundle";
+
 let img1 = require("../../static/layout/img/slider1.png");
 let img2 = require("../../static/layout/img/slider2.png");
 let img3 = require("../../static/layout/img/slider3.jpg");
