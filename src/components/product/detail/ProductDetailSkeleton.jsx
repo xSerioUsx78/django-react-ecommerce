@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 const ProductDetailSkeleton = () => {
   return (
     <div className="row mb-4">
-      <div className="col-lg-8 col-md-6 col-sm-12 text-xs-center">
+      <div className="col-lg-8 col-md-6 col-sm-12">
         <div className="product-detail">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-12">
@@ -13,7 +13,7 @@ const ProductDetailSkeleton = () => {
                     <Skeleton count={1} />
                   </h1>
                 </div>
-                <div className="img">
+                <div className="img text-xs-center">
                   <Skeleton count={1} height={180} />
                 </div>
               </div>
