@@ -7,6 +7,9 @@ ALLOWED_HOSTS = ["django-react-ecommerce-mn.herokuapp.com"]
 DEBUG = False
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+
+CORS_ORIGIN_WHITELIST = ['http://django-react-ecommerce-mn.herokuapp.com']
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
