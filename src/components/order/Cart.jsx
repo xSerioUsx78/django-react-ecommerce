@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   fetchCart,
   increaseItem,
@@ -12,7 +12,6 @@ import Skeleton from "react-loading-skeleton";
 import "../../static/layout/css/cart.css";
 
 const Cart = () => {
-  const auth = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -31,11 +30,7 @@ const Cart = () => {
   const handleDelete = (id) => {
     dispatch(deleteItem(id));
   };
-
-  if (!auth.isAuthenticated) {
-    return <Redirect to="/login/?next=/cart/" />;
-  }
-
+  
   return (
     <div className="cart-page-wrapper mt-4 mb-4">
       <div className="container">

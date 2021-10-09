@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "npm run build"
+    "preinstall": "npm run build"
   },
   "engines": {
     "node": "16.3.0"

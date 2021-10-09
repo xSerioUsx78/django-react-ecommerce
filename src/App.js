@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadUser } from './redux/actions/auth';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from './components/layout/PrivateRoute';
 import ScrollIntoTop from './hooks/ScrollIntoTop';
 import Index from './components/layout/Index';
 import Login from './components/auth/Login';
@@ -30,8 +31,8 @@ function App() {
           <Route path='/register/' component={Register} />
           <Route path='/login/' component={Login} />
           <Route path="/product/:id/:slug/" component={ProductDetail}></Route>
-          <Route path="/cart/" component={Cart}></Route>
-          <Route path="/checkout/" component={Checkout}></Route>
+          <PrivateRoute path="/cart/" component={Cart}></PrivateRoute>
+          <PrivateRoute path="/checkout/" component={Checkout}></PrivateRoute>
           <Route exact path="/product/" component={ProductList}></Route>
         </div>
         <Footer/>

@@ -1,11 +1,11 @@
 from .base import *
-
+from decouple import config
 
 ALLOWED_HOSTS = []
 
 DEBUG = True
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 DATABASES = {
     'default': {

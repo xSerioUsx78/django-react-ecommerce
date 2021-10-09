@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
     path('product/', include('product.urls', namespace='product')),
-    path('order/', include('order.urls', namespace='order')),
-    re_path(".*", TemplateView.as_view(template_name="index.html"))
+    path('order/', include('order.urls', namespace='order'))
 ]
 
 if settings.DEBUG:
@@ -33,3 +32,8 @@ if settings.DEBUG:
                           document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
+if not settings.DEBUG:
+    urlpatterns.append(
+        re_path(".*", TemplateView.as_view(template_name="index.html"))
+    )

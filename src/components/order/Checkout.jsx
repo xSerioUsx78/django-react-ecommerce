@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
   FaUser,
@@ -197,10 +197,6 @@ const Checkout = () => {
       setFormLoading(false);
     }
   };
-
-  if (!auth.isAuthenticated) {
-    return <Redirect to="/login/?next=/checkout/" />;
-  }
 
   if (cart.order === null) {
     return (window.location.href = "/");
